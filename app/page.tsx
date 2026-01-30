@@ -1,65 +1,86 @@
 import Image from "next/image";
+import ThreeCube from "./src/components/ThreeCube";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="w-full selection:bg-brand-cream selection:text-brand-dark">
+      
+      {/* SECTION 1: HERO (image_182f55.png) */}
+      <section className="h-screen w-full bg-[#211208] flex flex-col items-center justify-center text-center px-6">
+        {/* Logo - Sized according to Figma specs */}
+        <div className="mb-14">
+          <Image 
+            src="/logo.png" 
+            alt="Symphonia Logo" 
+            width={56} 
+            height={40} 
+            className="opacity-90"
+            priority 
+          />
+        </div>
+
+        {/* Heading - Fluid typography with tighter leading */}
+        <h1 className="text-[#f5e6d8] font-serif tracking-tight max-w-[1200px]
+          text-[36px] leading-[1.1]
+          md:text-[56px] md:leading-[1.1]
+          lg:text-[72px] lg:leading-[1.1]">
+          The first media company <br className="hidden md:block" /> 
+          crafted for the <br className="md:hidden" />
+          digital first generation.
+        </h1>
+      </section>
+
+      {/* SECTION 2: INNOVATION GRID (image_172c30.png / image_17994d.png) */}
+      <section className="relative h-screen w-full bg-[#211208] flex items-center justify-center px-6 overflow-hidden">
+        
+        {/* Orbital Images - Strategic placement for visual balance */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none container mx-auto">
+          {/* Top Left */}
+          <div className="absolute top-[12%] left-[10%] w-36 h-36 md:w-56 md:h-56 overflow-hidden shadow-2xl rotate-[-2deg]">
+            <ThreeCube />
+          </div>
+          {/* Top Right */}
+          <div className="absolute top-[10%] right-[8%] w-40 h-40 md:w-60 md:h-60 overflow-hidden shadow-2xl rotate-[3deg]">
+            <ThreeCube />
+          </div>
+          {/* Middle Left */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-[2%] w-32 h-32 md:w-52 md:h-52 overflow-hidden shadow-2xl">
+            <ThreeCube />
+          </div>
+          {/* Middle Right */}
+          <div className="absolute top-[55%] -translate-y-1/2 right-[4%] w-32 h-40 md:w-52 md:h-64 overflow-hidden shadow-2xl rotate-[-1deg]">
+            <ThreeCube />
+          </div>
+          {/* Bottom Left */}
+          <div className="absolute bottom-[8%] left-[15%] w-40 h-40 md:w-64 md:h-48 overflow-hidden shadow-2xl rotate-[1deg]">
+            <ThreeCube />
+          </div>
+          {/* Bottom Right */}
+          <div className="absolute bottom-[10%] right-[18%] w-36 h-36 md:w-52 md:h-52 overflow-hidden shadow-2xl">
+            <ThreeCube />
+          </div>
+        </div>
+
+        {/* Central Mission Text - Vertical rhythm and opacity */}
+        <div className="relative z-10 text-center max-w-2xl bg-[#211208]/40 backdrop-blur-sm p-8 rounded-2xl">
+          <h2 className="text-[#f5e6d8] font-bold text-lg md:text-xl mb-4 tracking-[0.2em] uppercase">
+            Where innovation meets precision.
+          </h2>
+          <p className="text-[#f5e6d8]/70 text-[15px] md:text-[17px] leading-relaxed font-light">
+            Symphonia unites visionary thinkers, creative architects, and analytical experts, 
+            collaborating seamlessly to transform challenges into opportunities. Together, 
+            we deliver tailored solutions that drive impact and inspire growth.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* SECTION 4: BEIGE TRANSITION (image_1798f6.png) */}
+      <section className="h-screen w-full bg-[#dcc9b6] flex items-center justify-center text-center">
+        <p className="text-[#211208] text-[22px] md:text-[28px] font-medium tracking-tight opacity-80 font-serif">
+          Your next section goes here.
+        </p>
+      </section>
+
+    </main>
   );
 }
